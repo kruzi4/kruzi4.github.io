@@ -777,12 +777,12 @@ body {
     height: 100%;
     -ms-flex-direction: column;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .content {
     display: -ms-flexbox;
     display: flex;
+    max-width: 66.7%;
     min-height: 100%;
 }
 
@@ -793,27 +793,32 @@ body {
 
 .container {
     width: 100%;
-    max-width: 47.2vw;
+    max-width: 680px;
 }
 
 .main {
     margin: 0 auto;
     padding-top: 40px;
     width: 100%;
-    max-width: 47.2vw;
+    max-width: 680px;
 }
 
 .sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
     background-color: #F8F8F8;
-    min-height: 100%;
     max-width: 33.3%;
     width: 100%;
+    overflow-y: scroll;
+    max-height: 100%;
     height: 100%;
     padding: 40px;
 }
 
 .sidebar-title {
     color: #ABABAB;
+    margin-bottom: 20px;
 }
 
 .header {
@@ -886,7 +891,7 @@ label {
     border: 2px solid #333333;
     border-radius: 10px;
     width: 100%;
-    max-width: 47.2vw;
+    max-width: 680px;
     height: 42px;
     padding: 10px 15px;
 }
@@ -926,9 +931,13 @@ label {
 }
 
 .form-additional {
+    display: none;
+    margin: 20px 0;
+}
+
+.form-additional.active {
     display: -ms-flexbox;
     display: flex;
-    margin: 20px 0;
 }
 
 .btn {
@@ -961,15 +970,38 @@ label {
     background-color: #F8F8F8;
 }
 
+.favourites .joke {
+    background: #fff;
+    border: 1px solid #F8F8F8;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 47px 20px 20px;
+}
+
+.favourites .joke .circle {
+    background-color: #F8F8F8;
+}
+
+.favourites .joke .joke-actions {
+    top: 20px;
+    right: 20px;
+}
+
+.favourites .joke .joke-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+
 .joke {
     display: -ms-flexbox;
     display: flex;
     position: relative;
-    max-width: 47.2vw;
+    max-width: 680px;
     width: 100%;
     padding: 67px 40px 45px;
     background-color: #F8F8F8;
     border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 .joke-actions {
@@ -1031,6 +1063,22 @@ label {
     color: #333;
 }
 
-.joke-actions .like.active path, .joke-actions .like.active polygon {
-    fill: #FF6767;
+.joke-actions .like {
+    cursor: pointer;
+}
+
+.joke-actions .like:after {
+    content: url("../images/svg/heart.svg");
+}
+
+.joke-actions .like.liked:after {
+    content: url("../images/svg/heart_full.svg");
+}
+
+.joke-data {
+    width: 100%;
+}
+
+.jokes {
+    padding-bottom: 200px;
 }

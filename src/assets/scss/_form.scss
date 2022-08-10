@@ -33,6 +33,10 @@ label {
 }
 
 .form-additional {
-  display: flex;
+  display: none;
   margin: 20px 0;
+  
+  &.active {
+    display: flex;
+  }
 }

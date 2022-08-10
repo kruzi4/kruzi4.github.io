@@ -18,10 +18,6 @@
     margin-bottom: 20px;
     line-height: 20px;
   }
-
-  & .joke-category {
-    display: none;
-  }
 }
 
 .joke {
@@ -93,7 +89,21 @@
   &-actions {
     & .like {
       cursor: pointer;
+
+      &:after {
+        content: url('../images/svg/heart.svg');
+      }
+
+      &.liked {
+        &:after {
+          content: url('../images/svg/heart_full.svg');
+        }
+      }
     }
+  }
+
+  &-data {
+    width: 100%;
   }
 }
 
