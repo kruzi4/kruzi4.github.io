@@ -8,7 +8,9 @@ $cPopupBg: #0000004D;
 
 $gradient: linear-gradient(90.55deg, #8EA7FF 0%, #7291FF 100%);
 
-$containerWidth: 680px;
+$containerWidth: 680px; //680px for 1440
+$mainWidth: 66.7%;
+$sidebarWidth: 33.3%;
 
 $tablet: 834px;
 $mobile: 380px;

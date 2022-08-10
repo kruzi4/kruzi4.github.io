@@ -6,16 +6,14 @@
 <body>
 
 <div class="page">
-    <!-- Header -->
-    {{> header }}
-
-    <!-- Main -->
-    <main class="main">
-        {{> body }}
-    </main>
-
-    <!-- Footer -->
-    {{> footer }}
+    <div class="content">
+        <main class="main">
+            {{> body }}
+        </main>
+        <aside class="sidebar">
+            {{> sidebar }}
+        </aside>
+    </div>
 </div>
 
 

@@ -1,0 +1,18 @@
+.category-tag {
+  text-transform: uppercase;
+  margin-right: 10px;
+  padding: 6px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 2px;
+  color: $cGrey;
+  border: 2px solid $cWhite2;
+  cursor: pointer;
+
+  &.active {
+    color: $cBlack;
+    background-color: $cWhite2;
+  }
+}
