@@ -705,10 +705,12 @@ body {
   min-height: 100%; }
   @media screen and (max-width: 1440px) {
     .content {
+      width: calc(100% - 40px * 2);
       max-width: calc(100% - 40px * 2);
       margin: 0 auto; } }
   @media screen and (max-width: 834px) {
     .content {
+      width: calc(100% - 20px * 2);
       max-width: calc(100% - 20px * 2); } }
 
 .header {
@@ -723,6 +725,9 @@ body {
   padding-top: 40px;
   width: 100%;
   max-width: 680px; }
+  @media screen and (max-width: 834px) {
+    .main {
+      padding-top: 20px; } }
 
 .mobile-menu {
   display: none; }
@@ -737,6 +742,10 @@ body {
       position: absolute;
       right: 40px;
       top: 40px; } }
+  @media screen and (max-width: 834px) {
+    .mobile-menu {
+      right: 20px;
+      top: 20px; } }
 
 .header {
   flex-basis: 100%; }

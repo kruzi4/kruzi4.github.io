@@ -770,11 +770,29 @@ body {
     color: #333;
 }
 
+.background:after {
+    position: fixed;
+    background-color: #0000004D;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+@media screen and (max-width: 1440px) {
+    .background:after {
+        content: '';
+    }
+}
+
 .page {
     display: -ms-flexbox;
     display: flex;
     min-height: 100%;
-    height: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     -ms-flex-direction: column;
     flex-direction: column;
 }
@@ -784,6 +802,19 @@ body {
     display: flex;
     max-width: 66.7%;
     min-height: 100%;
+}
+
+@media screen and (max-width: 1440px) {
+    .content {
+        max-width: calc(100% - 40px * 2);
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .content {
+        max-width: calc(100% - 20px * 2);
+    }
 }
 
 .header {
@@ -803,22 +834,24 @@ body {
     max-width: 680px;
 }
 
-.sidebar {
-    position: fixed;
-    right: 0;
-    top: 0;
-    background-color: #F8F8F8;
-    max-width: 33.3%;
-    width: 100%;
-    overflow-y: scroll;
-    max-height: 100%;
-    height: 100%;
-    padding: 40px;
+.mobile-menu {
+    display: none;
 }
 
-.sidebar-title {
-    color: #ABABAB;
-    margin-bottom: 20px;
+@media screen and (max-width: 1440px) {
+    .mobile-menu {
+        font-size: 20px;
+        font-weight: 500;
+        color: #ABABAB;
+        z-index: 5;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        position: absolute;
+        right: 40px;
+        top: 40px;
+    }
 }
 
 .header {
@@ -865,6 +898,7 @@ h2 {
 }
 
 h3 {
+    display: inline-block;
     font-weight: 700;
     font-size: 20px;
     line-height: 28px;
@@ -938,6 +972,8 @@ label {
 .form-additional.active {
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -963,6 +999,7 @@ label {
     color: #ABABAB;
     border: 2px solid #F8F8F8;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .category-tag.active {
@@ -1002,6 +1039,12 @@ label {
     background-color: #F8F8F8;
     border-radius: 20px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 834px) {
+    .joke {
+        padding: 47px 20px 20px;
+    }
 }
 
 .joke-actions {
@@ -1045,6 +1088,13 @@ label {
     justify-content: space-between;
     -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.joke-footer .joke-category {
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
 .joke-updated {
@@ -1052,6 +1102,13 @@ label {
     font-size: 10px;
     line-height: 14px;
     color: #ABABAB;
+}
+
+@media screen and (max-width: 834px) {
+    .joke-updated {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
 .joke-updated b {
@@ -1084,10 +1141,94 @@ label {
 }
 
 .burger {
+    display: block;
     position: relative;
     width: 28px;
     height: 28px;
     background-color: #333;
     border-radius: 50%;
     margin-right: 10px;
+    cursor: pointer;
+}
+
+.burger:before, .burger:after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.burger:before {
+    top: 36%;
+    left: 7px;
+}
+
+.burger:after {
+    top: 56%;
+    left: 7px;
+}
+
+.burger.active:before {
+    top: 46%;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.burger.active:after {
+    top: 46%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #F8F8F8;
+    max-width: 33.3%;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 100%;
+    height: 100%;
+    padding: 40px;
+    z-index: 10;
+}
+
+@media screen and (max-width: 1440px) {
+    .sidebar {
+        display: none;
+        max-width: 480px;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .sidebar {
+        padding: 20px;
+    }
+}
+
+.sidebar-title {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #ABABAB;
+    margin-bottom: 20px;
+}
+
+.sidebar-title .burger {
+    display: none;
+}
+
+@media screen and (max-width: 1440px) {
+    .sidebar-title {
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    }
+
+    .sidebar-title .burger {
+        display: block;
+    }
 }

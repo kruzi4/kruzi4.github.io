@@ -4,11 +4,13 @@
   min-height: 100%;
 
   @include breakpoint($desktop) {
+    width: $mainWidthTablet;
     max-width: $mainWidthTablet;
     margin: 0 auto;
   }
 
   @include breakpoint($tablet) {
+    width: $mainWidthMobile;
     max-width: $mainWidthMobile;
   }
 }
@@ -27,6 +29,10 @@
   padding-top: 40px;
   width: 100%;
   max-width: $containerWidth;
+
+  @include breakpoint($tablet) {
+    padding-top: 20px;
+  }
 }
 
 .mobile-menu {
@@ -42,6 +48,11 @@
     position: absolute;
     right: 40px;
     top: 40px;
+  }
+
+  @include breakpoint($tablet) {
+    right: 20px;
+    top: 20px;
   }
 }
 
