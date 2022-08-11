@@ -135,7 +135,7 @@ function cardTemplate(data) {
     </div>
     <div class="joke-icon">
         <div class="circle">
-            <img src="assets/images/svg/message.svg" alt="message">
+            <img src="dist/assets/images/svg/message.svg" alt="message">
         </div>
     </div>
     <div class="joke-data">
