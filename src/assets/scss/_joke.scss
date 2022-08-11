@@ -1,22 +1,24 @@
-.favourites .joke {
-  background: $cWhite;
-  border: 1px solid $cWhite2;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 47px 20px 20px;
+.favourites {
+  & .joke {
+    background: $cWhite;
+    border: 1px solid $cWhite2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 47px 20px 20px;
 
-  & .circle {
-    background-color: $cWhite2;
-  }
+    & .circle {
+      background-color: $cWhite2;
+    }
 
-  & .joke-actions {
-    top: 20px;
-    right: 20px;
-  }
+    & .joke-actions {
+      top: 20px;
+      right: 20px;
+    }
 
-  & .joke-text {
-    font-size: 14px;
-    margin-bottom: 20px;
-    line-height: 20px;
+    & .joke-text {
+      font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 20px;
+    }
   }
 }
 
@@ -29,6 +31,10 @@
   background-color: $cWhite2;
   border-radius: 20px;
   margin-bottom: 20px;
+
+  @include breakpoint($tablet) {
+    padding: 47px 20px 20px;
+  }
 
   &-actions {
     position: absolute;
@@ -68,6 +74,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
+    & .joke-category {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
   }
 
   &-updated {
@@ -75,6 +87,11 @@
     font-size: 10px;
     line-height: 14px;
     color: $cGrey;
+
+    @include breakpoint($tablet) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
     & b {
       font-weight: 500;

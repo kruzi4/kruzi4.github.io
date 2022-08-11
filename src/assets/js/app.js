@@ -74,6 +74,8 @@ submit.onclick = (e) => {
 
 function addNewJokeToTheList(joke, addAtTheStart = true, toFavourite = false) {
     let newJoke = document.createElement('div')
+    newJoke.classList.add('joke')
+    newJoke.setAttribute('data-id', joke.id)
     newJoke.innerHTML = cardTemplate(joke)
 
     let target = jokes
@@ -128,30 +130,26 @@ function cardTemplate(data) {
 
     let like = data.id in getStorageData() ? 'liked' : ''
 
-    let template = `
-    <div class="joke" data-id="${data.id}">
-        <div class="joke-actions">
-            <span class="like ${like}"></span>
-        </div>
-        <div class="joke-icon">
-            <div class="circle">
-                <img src="dist/assets/images/svg/message.svg" alt="message">
-            </div>
-        </div>
-        <div class="joke-data">
-            <div class="joke-id">
-                <span>ID: </span><a href="${data.url}">${data.id}</a>
-            </div>
-            <div class="joke-text">${data.value}</div>
-            <div class="joke-footer">
-                <div class="joke-updated" data-time="${data.updated_at}">
-                    <span>Last update: <b>${timeAgo} hours ago</b></span>
-                </div>
-                ${category}
-            </div>
+    let template = `<div class="joke-actions">
+        <span class="like ${like}"></span>
+    </div>
+    <div class="joke-icon">
+        <div class="circle">
+            <img src="assets/images/svg/message.svg" alt="message">
         </div>
     </div>
-    `
+    <div class="joke-data">
+        <div class="joke-id">
+            <span>ID: </span><a href="${data.url}">${data.id}</a>
+        </div>
+        <div class="joke-text">${data.value}</div>
+        <div class="joke-footer">
+            <div class="joke-updated" data-time="${data.updated_at}">
+                <span>Last update: <b>${timeAgo} hours ago</b></span>
+            </div>
+            ${category}
+        </div>
+    </div>`
 
     return template
 }

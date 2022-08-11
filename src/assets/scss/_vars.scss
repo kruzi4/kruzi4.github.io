@@ -12,5 +12,11 @@ $containerWidth: 680px; //680px for 1440
 $mainWidth: 66.7%;
 $sidebarWidth: 33.3%;
 
+$paddingTablet: 40px;
+$mainWidthTablet: calc(100% - #{$paddingTablet} * 2);
+$paddingMobile: 20px;
+$mainWidthMobile: calc(100% - #{$paddingMobile} * 2);
+
+$desktop: 1440px;
 $tablet: 834px;
 $mobile: 380px;

@@ -1,0 +1,39 @@
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: $cWhite2;
+    max-width: 33.3%;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 100%;
+    height: 100%;
+    padding: 40px;
+    z-index: 10;
+
+    @include breakpoint($desktop) {
+        display: none;
+        max-width: 480px;
+    }
+
+    @include breakpoint($tablet) {
+        padding: $paddingMobile;
+    }
+
+    &-title {
+        display: flex;
+        align-items: center;
+        color: $cGrey;
+        margin-bottom: 20px;
+        & .burger {
+            display: none;
+        }
+
+        @include breakpoint($desktop) {
+            justify-content: flex-end;
+            & .burger {
+                display: block;
+            }
+        }
+    }
+}
