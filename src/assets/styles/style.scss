@@ -12,7 +12,6 @@ body {
   &:after {
     @include breakpoint($desktop) {
       content: '';
-      //display: block;
     }
     position: fixed;
     background-color: $cPopupBg;

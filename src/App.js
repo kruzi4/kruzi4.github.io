@@ -1,7 +1,8 @@
+import './assets/styles/style.scss'
+
 function App() {
-    console.log('eahe')
     return (
-        <div className="App">
+        <div className="page">
             Hello world
         </div>
     );
