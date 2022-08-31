@@ -1,3 +1,5 @@
+@import './vars.scss';
+
 label {
   cursor: pointer;
 }
@@ -33,7 +35,7 @@ label {
 }
 
 .form-additional {
-  display: none;
+  display: flex;
   margin: 20px 0;
   
   &.active {
