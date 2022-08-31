@@ -1,18 +1,58 @@
 import '../assets/styles/_form.scss'
 import RadioInput from "./UI/RadioInput";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import TextInput from "./UI/TextInput";
 import Submit from "./UI/Submit";
+import JokeService from "../API/JokeService";
+import CategoryList from "./CategoryList";
 
-function FormControl() {
+function FormControl({append}) {
     const [selectedId, setSelectedId] = useState()
+    const [selectedCategory, setSelectedCategory] = useState()
+    const [searchValue, setSearchValue] = useState()
+
+    function setSearchVal(e) {
+        setSearchValue(e.target.value)
+    }
 
     function setOpenedId(e) {
         setSelectedId(e.target.id)
     }
 
+    function setCategory (category) {
+        setSelectedCategory(category)
+    }
+
+    const [categories, setCategories] = useState()
+    useEffect(async () => {
+        const cats = await JokeService.getCategories()
+        setCategories(cats.data)
+    }, [])
+
+    async function getJoke(e) {
+        e.preventDefault()
+
+        let joke
+        switch (selectedId) {
+            case 'random':
+                joke = await JokeService.getRandom()
+                break
+            case 'category':
+                joke = await JokeService.getRandom(selectedCategory)
+                break
+            case 'search':
+                joke = await JokeService.getOneBySearch(searchValue)
+                break
+        }
+
+        append(joke.data)
+    }
+
     return (
-        <form className="form">
+        <form
+            className="form"
+            onSubmit={getJoke}
+        >
 
             <RadioInput
                 name='find_joke'
@@ -29,10 +69,11 @@ function FormControl() {
                 selectedId={selectedId}
                 onClick={setOpenedId}
             >
-                <div className="category-tag">Animal</div>
-                <div className="category-tag">Career</div>
-                <div className="category-tag">Celebrity</div>
-                <div className="category-tag">dev</div>
+                <CategoryList
+                    categories={categories}
+                    selectedCategory={selectedCategory}
+                    select={setCategory}
+                />
             </RadioInput>
 
             <RadioInput
@@ -45,6 +86,7 @@ function FormControl() {
                 <TextInput
                     name="search"
                     placeholder="Free text search..."
+                    onChange={setSearchVal}
                 />
             </RadioInput>
 
