@@ -1,17 +1,13 @@
 import './assets/styles/style.scss'
 import FormControl from "./components/FormControl";
 import JokeList from "./components/JokeList";
-import {useState} from "react";
+import Sidebar from "./components/Sidebar";
+import {useFavourites} from "./hooks/useFavourites";
+import {useJokes} from "./hooks/useJokes";
 
 function App() {
-    const [jokes, setJokes] = useState([])
-    const appendJoke = (joke) => {
-        if (joke.result) {
-            setJokes([...joke.result, ...jokes])
-        } else {
-            setJokes([joke, ...jokes])
-        }
-    }
+    const [jokes, appendJoke] = useJokes()
+    const [favourites, setFavourite] = useFavourites()
 
     return (
         <div className="page">
@@ -27,16 +23,15 @@ function App() {
                         append={appendJoke}
                     />
                     <JokeList
+                        favourites={favourites}
                         list={jokes}
+                        setFavourite={setFavourite}
                     />
                 </main>
-                <aside className="sidebar">
-                    <h3 className="sidebar-title"><span className="burger active"></span><span>Favourite</span></h3>
-                    <div className="favourite-cards-wrapper">
-                        <div className="favourites">
-                        </div>
-                    </div>
-                </aside>
+                <Sidebar
+                    favourites={favourites}
+                    setFavourite={setFavourite}
+                />
             </div>
         </div>
     );

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import messageIco from '../assets/images/svg/message.svg'
 import {getLastUpdateHoursAgo} from "../utils/moment";
 
-const Joke = ({joke, favourite, isFavourite}) => {
+const Joke = ({joke, setFavourite, isFavourite}) => {
     const [isLiked, setIsLiked] = useState(isFavourite)
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const Joke = ({joke, favourite, isFavourite}) => {
             <div className="joke-actions">
                 <span
                     className={"like " + (isLiked ? 'liked' : '')}
-                    onClick={() => favourite(joke)}
+                    onClick={() => setFavourite(joke)}
                 ></span>
             </div>
             <div className="joke-icon">
