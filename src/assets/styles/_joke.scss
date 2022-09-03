@@ -58,7 +58,7 @@
 
       &:after {
         padding-left: 5px;
-        content: url('../../../src.example/assets/images/svg/link.svg');
+        content: url('../../../src/assets/images/svg/link.svg');
       }
     }
   }
@@ -108,12 +108,12 @@
       cursor: pointer;
 
       &:after {
-        content: url('../../../src.example/assets/images/svg/heart.svg');
+        content: url('../../../src/assets/images/svg/heart.svg');
       }
 
       &.liked {
         &:after {
-          content: url('../../../src.example/assets/images/svg/heart_full.svg');
+          content: url('../../../src/assets/images/svg/heart_full.svg');
         }
       }
     }
