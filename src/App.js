@@ -4,15 +4,20 @@ import JokeList from "./components/JokeList";
 import Sidebar from "./components/Sidebar";
 import {useFavourites} from "./hooks/useFavourites";
 import {useJokes} from "./hooks/useJokes";
+import {useState} from "react";
 
 function App() {
     const [jokes, appendJoke] = useJokes()
     const [favourites, setFavourite] = useFavourites()
+    const [isOpenSidebar, setIsOpenSidebar] = useState(false)
 
     return (
-        <div className="page">
+        <div className={"page" + (isOpenSidebar ? ' background' : '')}>
             <div className="mobile-top">
-                <span className="burger"></span><span>Favourite</span>
+                <span
+                    className="burger"
+                    onClick={() => setIsOpenSidebar(!isOpenSidebar)}
+                ></span><span>Favourite</span>
             </div>
             <div className="content">
                 <main className="main">
@@ -31,6 +36,8 @@ function App() {
                 <Sidebar
                     favourites={favourites}
                     setFavourite={setFavourite}
+                    isOpenSidebar={isOpenSidebar}
+                    show={setIsOpenSidebar}
                 />
             </div>
         </div>

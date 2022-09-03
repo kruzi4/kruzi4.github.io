@@ -12,7 +12,6 @@
     z-index: 10;
 
     @include breakpoint($desktop) {
-        display: none;
         max-width: 480px;
     }
 
